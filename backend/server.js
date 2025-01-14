@@ -28,9 +28,10 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User",userSchema)
 
-//  Get all users
-
-
+//basic function
+app.get("/",(req,res) =>{
+    res.send("Hello World 1");    
+});
 
 //  Create user
 app.post("/createuser",async(req,res)=>{
@@ -55,6 +56,7 @@ app.get("/readalluser",async(req,res)=>{
         res.send(error);
     }
 });
+
 
 // read
 app.get('/read/:id',async(req,res) =>{
@@ -88,8 +90,7 @@ app.delete('/delete/:id',async(req,res) =>{
         res.send(error);
     }
 });
-
-        
+   
 
 //database connection
 mongoose.connect("mongodb://localhost:27017/crud").then(() =>{
